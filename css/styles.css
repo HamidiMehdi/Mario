@@ -1,10 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
 body{
     background: url("../images/sky.png") repeat-x;
     background-size: auto 100vh;
     margin: 0;
+    padding: 0;
 }
 
-#landscape{
+/** ################## Popup-start ################## **/
+.popup_start {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_start{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 100px;
+    position: relative;
+    background: linear-gradient(135deg, #dcba00 0%, #ffe65c 100%);
+    border: #f5d000 solid 5px;
+    border-top-color: #fff3b3;
+    border-bottom-color: #8f7900;
+    border-left-color: #ffdf29;
+    border-right-color: #ffe65c;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.button_start_text {
+    color: white;
+    font-family: "Press Start 2P";
+    font-size: 4.5em;
+    text-align: center;
+    text-shadow: 5px 2px 0 #262626;
+    user-select: none;
+}
+.button_start_rivet {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 2px 0 #262626;
+}
+.button_start_rivet:first-child {
+    top: 0;
+    left: 0;
+}
+.button_start_rivet:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+.button_start_rivet:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+.button_start_rivet:last-child {
+    bottom: 0;
+    right: 0;
+}
+
+.button_start_animation {
+    animation: animate__button_start 1s linear;
+}
+
+@keyframes animate__button_start {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+/** ################## End popup-start ################## **/
+
+/** ################## Background image ################## **/
+.landscape{
     background: url("../images/landscape.png") repeat-x;
     position: fixed;
     bottom: 71px;
@@ -12,7 +109,7 @@ body{
     width: 100%;
 }
 
-#floor{
+.floor{
     background: url("../images/floor.png") repeat-x;
     position: fixed;
     bottom: 0;
@@ -20,7 +117,7 @@ body{
     width: 100%;
 }
 
-#second-floor{
+.second_floor{
     background: url("../images/second-floor.png") repeat-x;
     position: fixed;
     bottom: 71px;
@@ -28,30 +125,49 @@ body{
     width: 100%;
 }
 
-#mario{
+.background_music {
+    display: none;
+}
+/** ################## End background elements ################## **/
+
+
+.mario{
     background: url("../images/mario-sprite.png");
     height: 42px;
     width: 30px;
     background-position-x: -3px;
     position: absolute;
     bottom: 68px;
-    left: 50%;
+    left: calc(50% - 15px); /* width/2 = 15 */
 }
-.mario-right{
-    animation: mario 0.5s steps(25) infinite;  
+
+.mario_run{
+    animation: animation__mario_run 0.5s steps(25) infinite;
 }
-.mario-left{
-    animation: mario 0.5s steps(25) infinite;
+
+.mario_inverse_image {
     transform: translateX(-50%) scaleX(-1);
 }
 
-.background-music {
-    display: none;
+.mario_jumps {
+    animation: animation__mario_jumps 1.5s linear;
 }
 
+@keyframes animation__mario_jumps{
+    from {
+        bottom: 68px;
+    }
+    50% {
+        bottom: 200px;
+    }
+    to {
+        bottom: 68px;
+    }
+}
 
-@keyframes mario{
+@keyframes animation__mario_run{
     100%{
         background-position-x: -1005px;
     }
 }
+
