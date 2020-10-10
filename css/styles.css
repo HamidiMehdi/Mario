@@ -45,6 +45,10 @@ body{
     transform: translateX(-50%) scaleX(-1);
 }
 
+.background-music {
+    display: none;
+}
+
 
 @keyframes mario{
     100%{
