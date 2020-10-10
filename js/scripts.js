@@ -7,6 +7,8 @@ let marioFunc = {
     backgroundMusic: document.querySelector('audio.background_music'),
     shift : 0,
     marioCanJumps : true,
+    isWalking: false,
+    walkInterval: null,
     play: function () {
         // add animation button
         document.querySelector('.button_start').classList.add('button_start_animation');
@@ -20,10 +22,10 @@ let marioFunc = {
         console.log('ici');
         switch(event.key){
             case 'ArrowLeft':
-                marioFunc.shift++;
                 marioFunc.parallaxe();
                 marioFunc.mario.classList.add('mario_run');
                 marioFunc.mario.classList.add('mario_inverse_image');
+                marioFunc.shift++;
                 break;
             case 'ArrowRight':
                 marioFunc.parallaxe();
@@ -72,10 +74,19 @@ let marioListener = {
     },
     onKey : function () {
         document.addEventListener('keydown', function (event) {
-            marioFunc.walk(event);
+            if (!marioFunc.isWalking) {
+                marioFunc.isWalking = true;
+                marioFunc.walkInterval = setInterval(function () {
+                    marioFunc.walk(event);
+                }, 25);
+            }
         });
         document.addEventListener('keyup', function () {
-            marioFunc.stopWalking();
+            if (marioFunc.isWalking) {
+                marioFunc.isWalking = false;
+                marioFunc.stopWalking();
+                clearInterval(marioFunc.walkInterval);
+            }
         });
     },
     onAudio : function () {
