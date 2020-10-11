@@ -124,7 +124,7 @@ body{
     width: 100%;
 }
 
-.background_music {
+.hidden {
     display: none;
 }
 
@@ -166,7 +166,7 @@ body{
 }
 
 .mario_jumps {
-    animation: animation__mario_jumps 1.5s linear;
+    animation: animation__mario_jumps 1.2s linear;
 }
 
 @keyframes animation__mario_jumps{

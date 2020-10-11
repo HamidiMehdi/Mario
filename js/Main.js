@@ -4,8 +4,8 @@ class Main {
 
     constructor() {
         this.map = new Map();
-        this.mario = new Mario(this.map);
         this.audio = new Audio();
+        this.mario = new Mario(this.map, this.audio);
 
         this.map.buildMap();
         let self = this;

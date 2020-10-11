@@ -2,9 +2,10 @@
 
 class Mario {
 
-    constructor(map) {
+    constructor(map, audio) {
         this.mario = document.querySelector('.mario');
         this.map = map;
+        this.audio = audio;
         this.marioCanJumps = true;
         this.isWalking = false;
         this.walkInterval = undefined;
@@ -27,12 +28,13 @@ class Mario {
                 if (this.marioCanJumps === false) {
                     return;
                 }
+                this.audio.activeMarioJumpsSound();
                 this.mario.classList.add('mario_jumps');
                 this.marioCanJumps = false;
                 setTimeout(function () {
                     self.mario.classList.remove('mario_jumps');
                     self.marioCanJumps = true;
-                }, 1600);
+                }, 1200);
 
                 let elements = document.getElementsByClassName('random_floor');
                 //console.log(this.mario.offsetLeft);
