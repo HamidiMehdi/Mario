@@ -5,7 +5,7 @@ class Map {
     static FLOOR_SMALL_SIZE = 356;
     static FLOOR_MEDIUM_SIZE = 493;
     static FLOOR_LARGE_SIZE = 628;
-    static FLOOR_COUNTER = {min:10, max:15};
+    static FLOOR_COUNTER = {min:3, max:5};
 
     constructor() {
         this.sky = document.querySelector('body');
@@ -28,6 +28,7 @@ class Map {
             let floorDiv = document.createElement('div');
             floorDiv.classList.add(randomFloor.class);
             floorDiv.classList.add('random_floor');
+            floorDiv.classList.add('leftable');
             floorDiv.style.width = randomFloor.floor_size + 'px';
 
             if (lastFloorAdded === 0) {
@@ -39,6 +40,18 @@ class Map {
 
             this.secondFloor.appendChild(floorDiv);
         }
+
+        let flag = document.createElement('div');
+        flag.style.left = (lastFloorAdded + 300) + 'px';
+        flag.classList.add('flag');
+        flag.classList.add('leftable');
+        this.secondFloor.appendChild(flag);
+
+        let castle = document.createElement('div');
+        castle.style.left = (lastFloorAdded + 700) + 'px';
+        castle.classList.add('castle');
+        castle.classList.add('leftable');
+        this.secondFloor.appendChild(castle);
     }
 
     handleParallaxe (increase) {
@@ -48,7 +61,7 @@ class Map {
         this.landscape.style.backgroundPositionX = (this.shift * 2) + 'px';
         this.sky.style.backgroundPositionX = this.shift + 'px';
 
-        let allFloors = document.getElementsByClassName('random_floor');
+        let allFloors = document.getElementsByClassName('leftable');
         for (let i = 0; i < allFloors.length; i++) {
             let currentFloor = allFloors[i];
             let currentLeftValue = parseInt(currentFloor.style.left.slice(0, -2));

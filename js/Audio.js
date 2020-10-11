@@ -15,18 +15,18 @@ class Audio {
         switch (target) {
             case Audio.BACKGROUND_MUSIC :
                 this.backgroundMusic.play();
-                this.backgroundMusic.volume = 0.02;
+                this.backgroundMusic.volume = 0.5;
                 break;
             case Audio.ENDED_MUSIC :
                 this.backgroundMusic.pause();
                 this.backgroundMusicEnded.start();
-                this.backgroundMusicEnded.volume = 0.02;
+                this.backgroundMusicEnded.volume = 0.5;
                 break;
         }
     }
 
     activeMarioJumpsSound() {
         this.marioJumpsSound.play();
-        this.marioJumpsSound.volume = 0.03;
+        this.marioJumpsSound.volume = 0.6;
     }
 }

@@ -120,7 +120,7 @@ body{
 .second_floor{
     position: fixed;
     bottom: 71px;
-    height: 72px;
+    height: 479px;
     width: 100%;
 }
 
@@ -131,6 +131,7 @@ body{
 .random_floor {
     height: 72px;
     position: absolute;
+    bottom: 0px;
 }
 
 .second_floor_small {
@@ -144,8 +145,22 @@ body{
 .second_floor_large {
     background: url("../images/second_floor_large.png") no-repeat;
 }
-/** ################## End background elements ################## **/
 
+.flag {
+    background: url("../images/flag.png") no-repeat;
+    width: 149px;
+    height: 479px;
+    position: absolute;
+}
+
+.castle {
+    background: url("../images/castle.png") no-repeat;
+    width: 677px;
+    height: 479px;
+    position: absolute;
+    bottom: -8px;
+}
+/** ################## End background elements ################## **/
 
 .mario{
     background: url("../images/mario_sprite.png");
