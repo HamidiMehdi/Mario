@@ -118,7 +118,6 @@ body{
 }
 
 .second_floor{
-    background: url("../images/second-floor.png") repeat-x;
     position: fixed;
     bottom: 71px;
     height: 72px;
@@ -128,11 +127,28 @@ body{
 .background_music {
     display: none;
 }
+
+.random_floor {
+    height: 72px;
+    position: absolute;
+}
+
+.second_floor_small {
+    background: url("../images/second_floor_small.png") no-repeat;
+}
+
+.second_floor_medium {
+    background: url("../images/second_floor_medium.png") no-repeat;
+}
+
+.second_floor_large {
+    background: url("../images/second_floor_large.png") no-repeat;
+}
 /** ################## End background elements ################## **/
 
 
 .mario{
-    background: url("../images/mario-sprite.png");
+    background: url("../images/mario_sprite.png");
     height: 42px;
     width: 30px;
     background-position-x: -3px;

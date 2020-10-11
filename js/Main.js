@@ -7,6 +7,7 @@ class Main {
         this.mario = new Mario(this.map);
         this.audio = new Audio();
 
+        this.map.buildMap();
         let self = this;
         document.querySelector('.button_start').addEventListener('click', function () {
             self.play();
@@ -25,7 +26,6 @@ class Main {
 
     addEventsListener() {
         this.map.eventsListener();
-        //this.map.buildMap();
         this.mario.eventsListener();
         this.audio.play(Audio.BACKGROUND_MUSIC);
     }
