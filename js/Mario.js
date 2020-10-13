@@ -2,7 +2,7 @@
 
 class Mario {
 
-    static JUMPS_HEIGHT = 150;
+    static JUMPS_HEIGHT = 130;
 
     constructor(map, audio) {
         this.mario = document.querySelector('.mario');
@@ -69,10 +69,10 @@ class Mario {
                         clearInterval(jumpsAnimation);
                         jumpsStarted = false;
                         self.marioCanJumps = true;
-                        jumpsAverage = jumpsAverage - 5;
+                    } else {
+                        jumpsAverage--;
+                        hasAscend = true;
                     }
-                    jumpsAverage--;
-                    hasAscend = true;
                 }
                 self.mario.style.bottom = jumpsAverage + 'px';
             }
@@ -95,12 +95,9 @@ class Mario {
                 self.marioCanJumps = true;
                 downAverage++;
             } else {
-                console.log('je tombe');
                 if (self.checkIfHaveElement()) {
                     clearInterval(downAnimation);
                     self.marioCanJumps = true;
-                    //downAverage = downAverage - 5;
-                    return;
                 } else {
                     downAverage--;
                     self.mario.style.bottom = downAverage + 'px';
