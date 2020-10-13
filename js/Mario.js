@@ -31,12 +31,14 @@ class Mario {
         this.map.handleParallaxe(true);
         this.mario.classList.add('mario_run');
         this.mario.classList.add('mario_inverse_image');
+        this.checkIfMarioNeedGoDown();
     }
 
     walkRight() {
         this.map.handleParallaxe(false);
         this.mario.classList.add('mario_run');
         this.mario.classList.remove('mario_inverse_image');
+        this.checkIfMarioNeedGoDown();
     }
 
     jumps() {
@@ -47,12 +49,10 @@ class Mario {
         let self = this;
         this.marioCanJumps = false;
         this.audio.activeMarioJumpsSound();
-
         let bottomHistory = this.mario.style.bottom === "" ? 0 : Converter.valueWithPx(this.mario.style.bottom);
         let jumpsAverage = this.mario.style.bottom === "" ? 0 : Converter.valueWithPx(this.mario.style.bottom);
         let jumpsStarted = false;
         let hasAscend = false;
-
         let jumpsAnimation = setInterval(animation, 2.5);
 
         function animation () {
@@ -79,13 +79,43 @@ class Mario {
         }
     }
 
+    checkIfMarioNeedGoDown() {
+        if (!this.marioCanJumps) {
+            return;
+        }
+
+        let self = this;
+        this.marioCanJumps = false;
+        let downAverage = this.mario.style.bottom === "" ? 0 : Converter.valueWithPx(this.mario.style.bottom);
+        let downAnimation = setInterval(animation, 2.5);
+
+        function animation () {
+            if (downAverage === 0) {
+                clearInterval(downAnimation);
+                self.marioCanJumps = true;
+                downAverage++;
+            } else {
+                console.log('je tombe');
+                if (self.checkIfHaveElement()) {
+                    clearInterval(downAnimation);
+                    self.marioCanJumps = true;
+                    //downAverage = downAverage - 5;
+                    return;
+                } else {
+                    downAverage--;
+                    self.mario.style.bottom = downAverage + 'px';
+                }
+            }
+        }
+    }
+
     checkIfHaveElement() {
         let elements = document.getElementsByClassName('random_floor');
         for (let i = 0; i < elements.length; i++) {
             let currentElement = document.getElementsByClassName('random_floor')[i];
             if (
                 (this.mario.offsetLeft + this.mario.offsetWidth - 10) >= currentElement.offsetLeft &&
-                (this.mario.offsetLeft + 10) <= (currentElement.offsetLeft + currentElement.offsetWidth) &&
+                (this.mario.offsetLeft + 9) <= (currentElement.offsetLeft + currentElement.offsetWidth) &&
                 Converter.valueWithPx(this.mario.style.bottom) === (Converter.valueWithPx(currentElement.style.bottom) + currentElement.offsetHeight)
             ) {
                 return currentElement;
