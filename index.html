@@ -8,33 +8,23 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="popup_start">
-        <div class="button_start">
-            <span class="button_start_text">Play</span>
-            <div>
-                <div class="button_start_rivet"></div>
-                <div class="button_start_rivet"></div>
-                <div class="button_start_rivet"></div>
-                <div class="button_start_rivet"></div>
-            </div>
-        </div>
+    <div id="audio">
+        <audio id="background_music" class="hidden" controls loop>
+            <source src="audio/background_music.mp3">
+        </audio>
+        <audio id="mario_jumps_sound" class="hidden" controls>
+            <source src="audio/mario_jumps_sound.mp3">
+        </audio>
     </div>
+    <div id="container"></div>
 
-    <audio id="background_music" class="hidden" controls loop>
-        <source src="audio/background_music.mp3">
-    </audio>
-    <audio id="mario_jumps_sound" class="hidden" controls>
-        <source src="audio/mario_jumps_sound.mp3">
-    </audio>
-
-    <div class="landscape"></div>
-    <div class="second_floor"></div>
-    <div class="mario"></div>
-    <div class="floor"></div>
-
+    <script src="js/Audio.js"></script>
     <script src="js/Main.js"></script>
     <script src="js/Mario.js"></script>
     <script src="js/Map.js"></script>
-    <script src="js/Audio.js"></script>
+    <script src="js/MapModel/MapFactory.js"></script>
+    <script src="js/MapModel/MapGenerator.js"></script>
+    <script src="js/MapModel/MapModel.js"></script>
+
 </body>
 </html>

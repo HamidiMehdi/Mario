@@ -4,10 +4,11 @@ class Main {
 
     constructor() {
         this.map = new Map();
+        this.map.buildMap(MapFactory.FIRST_LEVEL_MAP);
+
         this.audio = new Audio();
         this.mario = new Mario(this.map, this.audio);
 
-        this.map.buildMap();
         let self = this;
         document.querySelector('.button_start').addEventListener('click', function () {
             self.play();
@@ -25,7 +26,6 @@ class Main {
     }
 
     addEventsListener() {
-        this.map.eventsListener();
         this.mario.eventsListener();
         this.audio.play(Audio.BACKGROUND_MUSIC);
     }

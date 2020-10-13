@@ -117,7 +117,7 @@ body{
     width: 100%;
 }
 
-.second_floor{
+.map_decoration{
     position: fixed;
     bottom: 71px;
     height: 479px;
@@ -131,19 +131,18 @@ body{
 .random_floor {
     height: 72px;
     position: absolute;
-    bottom: 0px;
 }
 
-.second_floor_small {
-    background: url("../images/second_floor_small.png") no-repeat;
+.small_floor {
+    background: url("../images/small_floor.png") no-repeat;
 }
 
-.second_floor_medium {
-    background: url("../images/second_floor_medium.png") no-repeat;
+.medium_floor {
+    background: url("../images/medium_floor.png") no-repeat;
 }
 
-.second_floor_large {
-    background: url("../images/second_floor_large.png") no-repeat;
+.large_floor {
+    background: url("../images/large_floor.png") no-repeat;
 }
 
 .flag {

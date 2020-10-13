@@ -12,6 +12,7 @@ class Audio {
     }
 
     play(target) {
+        return;
         switch (target) {
             case Audio.BACKGROUND_MUSIC :
                 this.backgroundMusic.play();
@@ -26,6 +27,7 @@ class Audio {
     }
 
     activeMarioJumpsSound() {
+        return;
         this.marioJumpsSound.play();
         this.marioJumpsSound.volume = 0.6;
     }
