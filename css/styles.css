@@ -167,8 +167,9 @@ body{
     width: 30px;
     background-position-x: -3px;
     position: absolute;
-    bottom: 68px;
+    bottom: 0px;
     left: calc(50% - 15px); /* width/2 = 15 */
+    z-index: 2;
 }
 
 .mario_run{
@@ -177,22 +178,6 @@ body{
 
 .mario_inverse_image {
     transform: translateX(-50%) scaleX(-1);
-}
-
-.mario_jumps {
-    animation: animation__mario_jumps 1.2s linear;
-}
-
-@keyframes animation__mario_jumps{
-    from {
-        bottom: 68px;
-    }
-    50% {
-        bottom: 200px;
-    }
-    to {
-        bottom: 68px;
-    }
 }
 
 @keyframes animation__mario_run{

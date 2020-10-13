@@ -27,7 +27,6 @@ class Audio {
     }
 
     activeMarioJumpsSound() {
-        return;
         this.marioJumpsSound.play();
         this.marioJumpsSound.volume = 0.6;
     }

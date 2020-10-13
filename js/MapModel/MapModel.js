@@ -21,15 +21,14 @@ class MapModel {
     }
 
     secondMapModel() {
-        return {
-            type : 'floor', left: 250, top: 250
-        };
+        return [
+            {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0}
+        ];
     }
 
     thirdMapModel() {
-        return {
-            type : 'floor', left: 250, top: 250
-        };
+        return [
+            {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0}
+        ];
     }
-
 }

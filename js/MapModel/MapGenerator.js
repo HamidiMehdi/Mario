@@ -71,7 +71,7 @@ class MapGenerator {
 
         let mario = document.createElement('div');
         mario.classList.add('mario');
-        container.appendChild(mario);
+        map.appendChild(mario);
 
         let floor = document.createElement('div');
         floor.classList.add('floor');

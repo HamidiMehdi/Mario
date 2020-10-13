@@ -42,13 +42,12 @@ class Map {
         let allFloors = document.getElementsByClassName('leftable');
         for (let i = 0; i < allFloors.length; i++) {
             let currentFloor = allFloors[i];
-            let currentLeftValue = parseInt(currentFloor.style.left.slice(0, -2));
 
             if (increase) {
-                currentFloor.style.left = (currentLeftValue + Map.SECOND_FLOOR_SPEED) + 'px';
+                currentFloor.style.left = (Converter.valueWithPx(currentFloor.style.left) + Map.SECOND_FLOOR_SPEED) + 'px';
                 continue;
             }
-            currentFloor.style.left = (currentLeftValue - Map.SECOND_FLOOR_SPEED) + 'px';
+            currentFloor.style.left = (Converter.valueWithPx(currentFloor.style.left) - Map.SECOND_FLOOR_SPEED) + 'px';
         }
     }
 }
