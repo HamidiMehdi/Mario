@@ -5,6 +5,7 @@ class MapFactory {
     static FIRST_LEVEL_MAP = 'FIRST_LEVEL_MAP';
     static SECOND_LEVEL_MAP = 'SECOND_LEVEL_MAP';
     static THIRD_LEVEL_MAP = 'THIRD_LEVEL_MAP';
+    static END_LEVEL_MAP = 'END_LEVEL_MAP';
 
     constructor() {
         this.mapGenerator = new MapGenerator();
@@ -21,6 +22,8 @@ class MapFactory {
             case MapFactory.THIRD_LEVEL_MAP:
                 this.mapGenerator.thirdMap();
                 break;
+            case MapFactory.END_LEVEL_MAP:
+                this.mapGenerator.endMap();
         }
     }
 }

@@ -31,25 +31,6 @@ class Main {
     }
 }
 
-let test = {
-    test: function() {
-        let mario = document.querySelector('.mario');
-        let elements = document.getElementsByClassName('random_floor');
-
-        for (let i = 0; i < elements.length; i++) {
-            let currentElement = document.getElementsByClassName('random_floor')[i];
-            if (
-                (mario.offsetLeft + mario.offsetWidth) >= currentElement.offsetLeft &&
-                (mario.offsetLeft) <= (currentElement.offsetLeft + currentElement.offsetWidth) &&
-                Converter.valueWithPx(mario.style.bottom) === (Converter.valueWithPx(currentElement.style.bottom) + currentElement.offsetHeight)
-            ) {
-                return currentElement;
-            }
-        }
-    }
-}
-
 window.onload = () => {
     new Main();
-
 };

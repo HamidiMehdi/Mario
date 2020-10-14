@@ -22,11 +22,19 @@ class MapModel {
 
     secondMapModel() {
         return [
-            {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0}
+            {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0},
+            {type: 'flag', class: MapModel.FLAG.CLASS , width: MapModel.FLAG.SIZE, left: 2600, bottom: 0},
+            {type: 'castle', class: MapModel.CASTLE.CLASS , width: MapModel.CASTLE.SIZE, left: 2950, bottom: -8}
         ];
     }
 
     thirdMapModel() {
+        return [
+            {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0}
+        ];
+    }
+
+    EndMapModel() {
         return [
             {type: 'floor', class: MapModel.SMALL_FLOOR.CLASS , width: MapModel.SMALL_FLOOR.SIZE, left: 250, bottom: 0}
         ];

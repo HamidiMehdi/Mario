@@ -22,6 +22,11 @@ class MapGenerator {
         this.build(this.model.thirdMapModel());
     }
 
+    endMap() {
+        this.map = MapFactory.END_LEVEL_MAP;
+        this.build(this.model.EndMapModel());
+    }
+
     build(data) {
         this.addDecoration();
         let mapDecoration = document.querySelector('.map_decoration');

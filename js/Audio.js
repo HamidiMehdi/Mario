@@ -12,6 +12,7 @@ class Audio {
     }
 
     play(target) {
+        return;
         switch (target) {
             case Audio.BACKGROUND_MUSIC :
                 this.backgroundMusic.play();
